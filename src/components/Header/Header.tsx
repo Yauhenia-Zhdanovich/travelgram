@@ -1,11 +1,19 @@
 import * as React from 'react';
 
+import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+const StyledHeader = styled.header`
+  height: 60px;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+`;
+
 export const Header = () => {
   return (
-    <header>
+    <StyledHeader>
       <div>Logo</div>
       <input type="text" placeholder="search" />
       <nav>
@@ -13,17 +21,6 @@ export const Header = () => {
         <FontAwesomeIcon icon={faPlus} />
         <div></div>
       </nav>
-      <section>
-        <div></div>
-        <div>
-          <h3>desription</h3>
-        </div>
-      </section>
-      <section>
-        <nav>
-          <h3>Publications</h3>
-        </nav>
-      </section>
-    </header>
+    </StyledHeader>
   );
 };
