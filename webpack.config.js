@@ -1,10 +1,13 @@
 const path = require('path');
+const webpack = require('webpack');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/index.tsx',
+  devtool: 'source-map',
   target: 'web',
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -13,11 +16,26 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
+  devServer: {
+    historyApiFallback: true,
+    port: 5000,
+  },
+  plugins: [
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[name].js.map',
+      exclude: ['main.js'],
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+  ],
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [{ loader: 'file-loader' }],
       },
       {
         enforce: 'pre',
@@ -28,39 +46,6 @@ module.exports = {
         test: /\.css$/,
         loader: 'css-loader',
       },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-      //   {
-      //     test: /\.(gif|png|jpe?g|svg)$/i,
-      //     use: [
-      //       'file-loader',
-      //       {
-      //         loader: 'image-webpack-loader',
-      //         options: {
-      //           mozjpeg: {
-      //             progressive: true,
-      //           },
-      //           // optipng.enabled: false will disable optipng
-      //           optipng: {
-      //             enabled: false,
-      //           },
-      //           pngquant: {
-      //             quality: [0.65, 0.90],
-      //             speed: 4
-      //           },
-      //           gifsicle: {
-      //             interlaced: false,
-      //           },
-      //           // the webp option will enable WEBP
-      //           webp: {
-      //             quality: 75
-      //           }
-      //         }
-      //       },
-      //     ],
-      //   }
     ],
   },
   plugins: [
