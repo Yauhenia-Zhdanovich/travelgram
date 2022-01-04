@@ -7,16 +7,30 @@ export interface ImageItem {
   id: string;
 }
 
-const ImageGridSection = styled.section``;
+const ImageGridSection = styled.section`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px 20px;
+`;
+const ImageContainer = styled.div`
+  height: 200px;
+  overflow: hidden;
+`;
+const Image = styled.img`
+  width: 300px;
+  height: auto;
+`;
 
 export const ImageGrid = (props: { images: Array<ImageItem> }) => {
   return (
-    <section>
-      {props.images.map(image => (
-        <div key={image.id}>
-          <img src={image.img} alt="" />
-        </div>
-      ))}
-    </section>
+    <div>
+      <ImageGridSection>
+        {props.images.map(image => (
+          <ImageContainer key={image.id}>
+            <Image src={image.img} alt="" />
+          </ImageContainer>
+        ))}
+      </ImageGridSection>
+    </div>
   );
 };
