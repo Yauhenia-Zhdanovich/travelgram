@@ -9,6 +9,7 @@ import { ImageGrid, ImageItem } from '../ImageGrid/ImageGrid';
 const ProfilePageMain = styled.main`
   margin: 0 auto;
   padding: 0 40px;
+  position: relative;
 `;
 
 const image1 = require('../../assets/photo_1.jpg');

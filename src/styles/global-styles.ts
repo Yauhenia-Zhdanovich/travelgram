@@ -3,4 +3,6 @@ import reset from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
+
+  .search-
 `;
