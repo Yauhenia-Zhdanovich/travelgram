@@ -29,6 +29,7 @@ module.exports = {
     'react/destructuring-assignment': 0,
     'react/jsx-props-no-spreading': 0,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
   },
   settings: {
     'import/parsers': {

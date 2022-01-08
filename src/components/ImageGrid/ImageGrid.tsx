@@ -13,8 +13,11 @@ const ImageGridSection = styled.section`
   gap: 20px 20px;
 `;
 const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
   height: 200px;
   overflow: hidden;
+  align-items: center;
 `;
 const Image = styled.img`
   width: 300px;

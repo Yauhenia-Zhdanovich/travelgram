@@ -3,7 +3,8 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser, faPlus } from '@fortawesome/free-solid-svg-icons';
-import TextField from '@mui/material/TextField';
+
+import { SimpleInput } from '../SimpleInput';
 
 const logo = require('../../assets/logo_travelgram.png');
 
@@ -23,7 +24,7 @@ export const Header = () => {
   return (
     <StyledHeader>
       <LogoImage src={logo.default} alt="" />
-      <TextField className="search-input" id="search" label="Outlined" />
+      <SimpleInput placeholder="Search" />
       <nav>
         <FontAwesomeIcon icon={faHouseUser} />
         <FontAwesomeIcon icon={faPlus} />
