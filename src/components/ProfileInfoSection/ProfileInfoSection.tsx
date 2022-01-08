@@ -15,8 +15,3 @@ export const ProfileInfoSection = () => {
     </section>
   );
 };
-//   <section>
-//     <nav>
-//       <h3>Publications</h3>
-//     </nav>
-//   </section>

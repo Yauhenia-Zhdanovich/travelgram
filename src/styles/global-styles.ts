@@ -4,5 +4,13 @@ import reset from 'styled-reset';
 export const GlobalStyle = createGlobalStyle`
   ${reset}
 
-  .search-
+  #simple-input {
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
+  .MuiInputAdornment-root {
+    font-size: 9px;
+    padding-left: 0;
+  }
 `;

@@ -10,6 +10,8 @@ const ProfilePageMain = styled.main`
   margin: 0 auto;
   padding: 0 40px;
   position: relative;
+  max-width: 935px;
+  width: 100% - 40px;
 `;
 
 const image1 = require('../../assets/photo_1.jpg');
