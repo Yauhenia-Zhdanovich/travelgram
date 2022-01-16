@@ -13,4 +13,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 9px;
     padding-left: 0;
   }
+
+  .svg-inline--fa {
+    width: 24px;
+    height: 24px;
+  }
 `;
