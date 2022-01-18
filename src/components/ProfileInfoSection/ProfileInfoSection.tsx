@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
-import { PortalForModal } from '../PortalForModals';
 import { Modal } from '../Modal';
 
 const profileImage = require('../../assets/photo_11.jpg');
@@ -18,12 +17,12 @@ const ProfileImage = styled.img`
 `;
 
 const ProfileImageContainer = styled.span`
-  display: block;
-  border-radius: 50%;
-  flex: 0 0 auto;
   position: relative
+  display: block;
+  flex: 0 0 auto;
   width: 150px;
   height: 150px;
+  border-radius: 50%;
   cursor: pointer;
 `;
 
@@ -43,9 +42,20 @@ export const ProfileInfoSection = () => {
         <h3>desription</h3>
       </div>
       {isOpen && (
-        <PortalForModal>
-          <Modal></Modal>
-        </PortalForModal>
+        <Modal
+          open={isOpen}
+          onClose={() => {
+            handleIsOpen(false);
+          }}
+        >
+          <button
+            onClick={() => {
+              handleIsOpen(false);
+            }}
+          >
+            Close
+          </button>
+        </Modal>
       )}
     </MainSection>
   );
