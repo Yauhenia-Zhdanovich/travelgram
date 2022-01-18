@@ -33,6 +33,21 @@ const NavigationLink = styled.a`
   cursor: pointer;
 `;
 
+const ProfileImageContainer = styled.span`
+  margin-left: 22px;
+  display: block;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  position: relative
+  width: 24px;
+  height: 24px;
+`;
+
+const ProfileImage = styled.img`
+  height: 100%;
+  width: 100%;
+`;
+
 export const Navigation = () => {
   return (
     <NavigationContainer>
@@ -51,7 +66,9 @@ export const Navigation = () => {
         </NavigationItemContainer>
       </NavigationItem>
       <NavigationItem>
-        <div></div>
+        <ProfileImageContainer>
+          <ProfileImage src={logo.default} alt="" />
+        </ProfileImageContainer>
       </NavigationItem>
     </NavigationContainer>
   );
