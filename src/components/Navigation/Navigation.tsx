@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const logo = require('../../assets/photo_11.jpg');
-
 const NavigationContainer = styled.nav`
   display: flex;
   padding-left: 24px;
@@ -49,6 +47,8 @@ const ProfileImage = styled.img`
 `;
 
 export const Navigation = () => {
+  const mockedProfileImageUrl: string = 'http://localhost:3000/photo_11.jpg';
+
   return (
     <NavigationContainer>
       <NavigationItem>
@@ -67,7 +67,7 @@ export const Navigation = () => {
       </NavigationItem>
       <NavigationItem>
         <ProfileImageContainer>
-          <ProfileImage src={logo.default} alt="" />
+          <ProfileImage src={mockedProfileImageUrl} alt="" />
         </ProfileImageContainer>
       </NavigationItem>
     </NavigationContainer>

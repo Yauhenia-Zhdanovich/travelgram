@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { ProfilePage } from './ProfilePage/ProfilePage';
 import { GlobalStyle } from '../styles/global-styles';
 
+const mockedId = 'user-0001';
+
 const ModalRoot = styled.div`
   position: relative;
   z-index: 999;
@@ -13,7 +15,7 @@ const ModalRoot = styled.div`
 export const App = () => (
   <>
     <GlobalStyle />
-    <ProfilePage />
+    <ProfilePage userId={mockedId} />
     <ModalRoot id="modal-root"></ModalRoot>
   </>
 );

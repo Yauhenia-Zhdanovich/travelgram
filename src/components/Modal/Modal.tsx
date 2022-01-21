@@ -32,7 +32,6 @@ export const Modal = (props: {
   onClose: (isOpen: boolean) => void;
   children: JSX.Element | JSX.Element[];
 }) => {
-  const [active, setActive]: [boolean, any] = React.useState(false);
   const backdrop: any = React.useRef(null);
 
   React.useEffect(() => {
@@ -66,7 +65,7 @@ export const Modal = (props: {
 
   return (
     <>
-      {(props.open || active) && (
+      {props.open && (
         <PortalForModal>
           <ModalContainer ref={backdrop}>
             <ModalBody>

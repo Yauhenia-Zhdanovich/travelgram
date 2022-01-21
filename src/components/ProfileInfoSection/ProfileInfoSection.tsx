@@ -4,8 +4,6 @@ import styled from 'styled-components';
 
 import { Modal } from '../Modal';
 
-const profileImage = require('../../assets/photo_11.jpg');
-
 const MainSection = styled.section`
   display: flex;
 `;
@@ -33,10 +31,12 @@ export const ProfileInfoSection = () => {
     handleIsOpen(!isOpen);
   };
 
+  const mockedProfileImageUrl: string = 'http://localhost:3000/photo_11.jpg';
+
   return (
     <MainSection>
       <ProfileImageContainer onClick={onHandleClick}>
-        <ProfileImage src={profileImage.default} alt="" />
+        <ProfileImage src={mockedProfileImageUrl} alt="" />
       </ProfileImageContainer>
       <div>
         <h3>desription</h3>
