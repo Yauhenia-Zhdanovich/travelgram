@@ -24,15 +24,16 @@ const Image = styled.img`
 `;
 
 export const ImageGrid = (props: { images: Array<ImageItem> }) => {
+  if (!props.images?.length) {
+    throw new Error('no images');
+  }
   return (
-    <div>
-      <ImageGridSection>
-        {props.images?.map(image => (
-          <ImageContainer key={image.id}>
-            <Image src={image.url} alt="" />
-          </ImageContainer>
-        ))}
-      </ImageGridSection>
-    </div>
+    <ImageGridSection>
+      {props.images?.map(image => (
+        <ImageContainer key={image.id}>
+          <Image src={image.url} alt="" />
+        </ImageContainer>
+      ))}
+    </ImageGridSection>
   );
 };

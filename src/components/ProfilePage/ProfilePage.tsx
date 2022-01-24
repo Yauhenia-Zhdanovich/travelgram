@@ -5,9 +5,10 @@ import axios from 'axios';
 
 import { Header } from '../Header/Header';
 import { ProfileInfoSection } from '../ProfileInfoSection/ProfileInfoSection';
-import { ImageGrid } from '../ImageGrid/ImageGrid';
+import { ImageGrid } from '../ImageGrid';
 import { mapImageUrl } from '../../utils/index';
-import { ImageItem } from '../../interfaces';
+
+import { ErrorBoundary } from '../ErrorBoundary';
 
 const ProfilePageMain = styled.main`
   margin: 0 auto;
@@ -36,10 +37,15 @@ export const ProfilePage = (props: { userId: string }) => {
 
   return (
     <ProfilePageMain>
-      <Header />
-      <ProfileInfoSection />
-      <ImageGrid images={user?.photos} />
-      Profile Page
+      {user && (
+        <>
+          <Header />
+          <ProfileInfoSection />
+          <ErrorBoundary errorText="fksl">
+            <ImageGrid images={user?.photos} />
+          </ErrorBoundary>
+        </>
+      )}
     </ProfilePageMain>
   );
 };
