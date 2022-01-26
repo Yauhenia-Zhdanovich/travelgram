@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
+import { hostPath } from '../../constants';
+
 import { Modal } from '../Modal';
 
 const MainSection = styled.section`
@@ -24,22 +26,28 @@ const ProfileImageContainer = styled.span`
   cursor: pointer;
 `;
 
-export const ProfileInfoSection = () => {
+export const ProfileInfoSection = ({
+  profilePhoto,
+  profileDescription,
+}: {
+  profilePhoto: string;
+  profileDescription: string;
+}) => {
   const [isOpen, handleIsOpen] = React.useState(false);
 
   const onHandleClick = () => {
     handleIsOpen(!isOpen);
   };
 
-  const mockedProfileImageUrl: string = 'http://localhost:3000/photo_11.jpg';
+  const profileImageUrl: string = `${hostPath}/${profilePhoto}`;
 
   return (
     <MainSection>
       <ProfileImageContainer onClick={onHandleClick}>
-        <ProfileImage src={mockedProfileImageUrl} alt="" />
+        <ProfileImage src={profileImageUrl} alt="" />
       </ProfileImageContainer>
       <div>
-        <h3>desription</h3>
+        <h3>{profileDescription}</h3>
       </div>
       {isOpen && (
         <Modal

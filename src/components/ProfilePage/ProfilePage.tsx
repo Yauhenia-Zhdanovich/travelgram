@@ -1,13 +1,16 @@
 import * as React from 'react';
 
 import styled from 'styled-components';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
-import { Header } from '../Header/Header';
-import { ProfileInfoSection } from '../ProfileInfoSection/ProfileInfoSection';
+import { mapImageUrl } from '../../utils';
+
+import { hostPath } from '../../constants';
+import { User, UserBE } from '../../interfaces';
+
+import { Header } from '../Header';
+import { ProfileInfoSection } from '../ProfileInfoSection';
 import { ImageGrid } from '../ImageGrid';
-import { mapImageUrl } from '../../utils/index';
-
 import { ErrorBoundary } from '../ErrorBoundary';
 
 const ProfilePageMain = styled.main`
@@ -19,17 +22,18 @@ const ProfilePageMain = styled.main`
 `;
 
 export const ProfilePage = (props: { userId: string }) => {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser]: [User, (user: User) => any] = React.useState(null);
 
   React.useEffect(() => {
-    const fetchUser = async () => {
-      const fetchedUser = await axios.get(
-        `http://localhost:3000/profile/${props.userId}`,
+    const fetchUser: () => void = async () => {
+      const fetchedUser: AxiosResponse<UserBE, {}> = await axios.get(
+        `${hostPath}/profile/${props.userId}`,
       );
-      const mappedUser = {
+      const mappedUser: User = {
         ...fetchedUser.data,
         photos: mapImageUrl(fetchedUser.data?.photos),
       };
+
       setUser(mappedUser);
     };
     fetchUser();
@@ -39,9 +43,12 @@ export const ProfilePage = (props: { userId: string }) => {
     <ProfilePageMain>
       {user && (
         <>
-          <Header />
-          <ProfileInfoSection />
-          <ErrorBoundary errorText="fksl">
+          <Header profilePhoto={user?.profilePhoto} />
+          <ProfileInfoSection
+            profilePhoto={user?.profilePhoto}
+            profileDescription={user?.description}
+          />
+          <ErrorBoundary errorText="no-images-for-the-user">
             <ImageGrid images={user?.photos} />
           </ErrorBoundary>
         </>

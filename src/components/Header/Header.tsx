@@ -19,12 +19,12 @@ const LogoImage = styled.img`
   width: auto;
 `;
 
-export const Header = () => {
+export const Header = ({ profilePhoto }: { profilePhoto: string }) => {
   return (
     <StyledHeader>
       <LogoImage src={logo.default} alt="" />
       <SimpleInput placeholder="Search" />
-      <Navigation />
+      <Navigation profilePhoto={profilePhoto} />
     </StyledHeader>
   );
 };

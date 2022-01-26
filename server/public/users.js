@@ -4,7 +4,7 @@ const users = [
     name: 'Yauhenia',
     description:
       'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis rerum exercitationem soluta, ab asperiores, maiores sit illo, officia labore animi accusantium. Deserunt perferendis quae praesentium, animi voluptatum quidem fugit sint, voluptas recusandae eius repellat suscipit ullam aut iure modi commodi nobis! Nobis debitis blanditiis obcaecati delectus voluptatibus consequatur provident ad.',
-    profilePhoto: 'photo_1',
+    profilePhoto: 'photo_11.jpg',
     photos: [
       'photo_1.jpg',
       'photo_2.jpg',
