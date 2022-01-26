@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import styled from 'styled-components';
 
+import { hostPath } from '../../constants';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouseUser, faPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -46,8 +48,8 @@ const ProfileImage = styled.img`
   width: 100%;
 `;
 
-export const Navigation = () => {
-  const mockedProfileImageUrl: string = 'http://localhost:3000/photo_11.jpg';
+export const Navigation = ({ profilePhoto }: { profilePhoto: string }) => {
+  const profileImageUrl: string = `${hostPath}/${profilePhoto}`;
 
   return (
     <NavigationContainer>
@@ -67,7 +69,7 @@ export const Navigation = () => {
       </NavigationItem>
       <NavigationItem>
         <ProfileImageContainer>
-          <ProfileImage src={mockedProfileImageUrl} alt="" />
+          <ProfileImage src={profileImageUrl} alt="" />
         </ProfileImageContainer>
       </NavigationItem>
     </NavigationContainer>
